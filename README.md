@@ -33,25 +33,27 @@ src
 ├── App.js                  # Controller (메인 로직 담당)
 ├── index.js
 │
+├── constants/              # Constants (상수 관리)
+│ └── Constants.js
+│
 ├── domain/                 # Model (핵심 로직 및 데이터 관리)
-│ ├── Car.js                ## Car 클래스 (이름, 위치, move 메서드)
-│ └── Race.js               ## Race 클래스 (Car 배열 관리, 라운드 실행, 우승자 판별)
+│ ├── Car.js                 ## Car 클래스 (이름, 위치, move 메서드)
+│ └── Race.js                ## Race 클래스 (Car 배열 관리, 라운드 실행, 우승자 판별)
+│
+├── utils/                  # Utilities (보조 도구)
+│ └── RandomGenerator.js     ## 0~9 사이 무작위 숫자 생성
+│
+├── validate/               # Validator (유효성 검증)
+│ └── Validator.js
 │
 ├── view/                   # View (입출력 담당)
 │ ├── InputView.js
 │ └── OutputView.js
 │
-├── utils/                  # Utilities (보조 도구)
-│ ├── RandomGenerator.js    ## 0~9 사이 무작위 숫자 생성
-│ └── Constants.js
-│
-├── validate/               # Validator (유효성 검증)
-│ └── Validator.js
-│
-└── tests/                  # Test
-├── CarTest.js              ## Car 클래스 테스트
-├── RaceTest.js             ## Race 클래스 테스트
-└── ValidatorTest.js        ## Validator 테스트
+tests/                      # Test
+  ├── CarTest.js             ## Car 클래스 테스트
+  ├── RaceTest.js            ## Race 클래스 테스트
+  └── ValidatorTest.js       ## Validator 테스트
 ```
 
 ---
@@ -123,4 +125,4 @@ src
      - [ ] 숫자 앞뒤로 공백이 있는 경우
      - [ ] 천 단위 쉼표가 포함된 경우 (`1,000`)
    - **overflow**
-     - [ ] `Number.MAX_SAFE_INTEGER`를 초과하는 매우 큰 수 (e.g., `999999999999999999`)
+     - [ ] `Number.MAX_SAFE_INTEGER`를 초과하는 매우 큰 수
