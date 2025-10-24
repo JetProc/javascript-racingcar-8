@@ -23,8 +23,8 @@ class Race {
   }
 
   #getCarsWithMaxMove() {
-    const maxMove = this.#getMaxMoveCount();
-    return this.#cars.filter((car) => car.moveCount === maxMove);
+    const maxMoveCount = this.#getMaxMoveCount();
+    return this.#cars.filter((car) => car.moveCount === maxMoveCount);
   }
 
   #getMaxMoveCount() {
