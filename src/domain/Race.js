@@ -1,5 +1,6 @@
 import Car from './Car.js';
 import RandomGenerator from '../utils/RandomGenerator.js';
+import { RANDOM_NUM } from '../constants/index.js';
 
 class Race {
   #cars;
@@ -10,7 +11,7 @@ class Race {
 
   playRound() {
     this.#cars.forEach((car) => {
-      const randomNum = RandomGenerator();
+      const randomNum = RandomGenerator(RANDOM_NUM.START, RANDOM_NUM.END);
       car.move(randomNum);
     });
   }
