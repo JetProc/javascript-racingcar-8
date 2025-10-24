@@ -1,4 +1,5 @@
 import Car from './Car.js';
+import OutputView from '../view/OutputView.js';
 import RandomGenerator from '../utils/RandomGenerator.js';
 import { RANDOM_NUM } from '../constants/index.js';
 
@@ -14,6 +15,7 @@ class Race {
       const randomNum = RandomGenerator(RANDOM_NUM.START, RANDOM_NUM.END);
       car.move(randomNum);
     });
+    OutputView.printRoundResult(this.#cars);
   }
 
   getWinners() {
