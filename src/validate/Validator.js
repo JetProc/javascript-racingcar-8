@@ -3,10 +3,11 @@ import {
   isTrimmedInputEmpty,
   startsWith,
   endsWith,
-  isCorrectFormat,
+  isTryCountCorrectFormat,
   isOverflowNumber,
   hasEmptyName,
   hasNameLongerThan,
+  isCarNameInvalidFormat,
   hasDuplicates,
 } from './checkers.js';
 
@@ -30,7 +31,7 @@ export function validateTryCountInput(input) {
     throw new Error(COMMON_ERROR.MUST_INPUT);
   }
 
-  if (!isCorrectFormat(input)) {
+  if (!isTryCountCorrectFormat(input)) {
     throw new Error(ROUND_ERROR.INVALID_FORMAT);
   }
 
@@ -47,6 +48,10 @@ export function validateCarNames(names) {
 
   if (hasNameLongerThan(names, MAX_NAME_LENGTH)) {
     throw new Error(CAR_NAME_ERROR.INVALID_LENGTH);
+  }
+
+  if (isCarNameInvalidFormat(names)) {
+    throw new Error(CAR_NAME_ERROR.INVALID_FORMAT);
   }
 
   if (hasDuplicates(names)) {
