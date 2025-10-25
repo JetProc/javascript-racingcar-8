@@ -1,15 +1,20 @@
 import Race from './domain/Race.js';
 import OutputView from './view/OutputView.js';
 import InputView from './view/InputView.js';
+import { validateCarNameInput, validateTryCountInput, validateCarNames } from './validate/validator.js';
 
 class App {
   async run() {
     try {
       const carNamesInput = await InputView.inputCarNames();
-      const tryCount = await InputView.inputTryCount();
+      validateCarNameInput(carNamesInput);
 
-      //유효성 검증
-      const carNames = carNamesInput.split(',');
+      const tryCount = await InputView.inputTryCount();
+      validateTryCountInput(tryCount);
+
+      const carNames = carNamesInput.split(',').map((name) => name.trim());
+      validateCarNames(carNames);
+
       const race = new Race(carNames);
 
       OutputView.printResultHeader();
