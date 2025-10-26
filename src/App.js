@@ -9,11 +9,11 @@ class App {
       const carNamesInput = await InputView.inputCarNames();
       validateCarNameInput(carNamesInput);
 
-      const tryCount = await InputView.inputTryCount();
-      validateTryCountInput(tryCount);
-
       const carNames = carNamesInput.split(',').map((name) => name.trim());
       validateCarNames(carNames);
+
+      const tryCount = await InputView.inputTryCount();
+      validateTryCountInput(tryCount);
 
       const race = new Race(carNames);
 
@@ -27,7 +27,7 @@ class App {
       OutputView.printWinners(winners);
     } catch (error) {
       OutputView.printError(error.message);
-      throw error;
+      // throw error;
     }
   }
 }
