@@ -1,5 +1,5 @@
-export function isTrimmedInputEmpty(input) {
-  return input.trim() === '';
+export function isInputEmpty(input) {
+  return input === '';
 }
 
 export function startsWith(input, char) {
@@ -7,13 +7,6 @@ export function startsWith(input, char) {
 }
 export function endsWith(input, char) {
   return input.endsWith(char);
-}
-
-export function isTryCountCorrectFormat(input) {
-  return /^[0-9]+$/.test(input);
-}
-export function isOverflowNumber(input) {
-  return BigInt(input) > BigInt(Number.MAX_SAFE_INTEGER);
 }
 
 export function hasEmptyName(names) {
@@ -29,4 +22,14 @@ export function isCarNameInvalidFormat(names) {
 export function hasDuplicates(names) {
   const uniqueNames = new Set(names);
   return uniqueNames.size !== names.length;
+}
+
+export function isTryCountCorrectFormat(input) {
+  return /^[0-9]+$/.test(input);
+}
+export function isPositive(input) {
+  return Number(input) > 0;
+}
+export function isOverflowNumber(input) {
+  return BigInt(input) > BigInt(Number.MAX_SAFE_INTEGER);
 }
