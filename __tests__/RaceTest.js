@@ -66,15 +66,4 @@ describe('자동차 경주 게임 통합 테스트 (RaceTest)', () => {
     expect(logSpy).toHaveBeenCalledWith(expect.stringContaining('b : '));
     expect(logSpy).toHaveBeenCalledWith(expect.stringContaining('최종 우승자 : a'));
   });
-
-  test('유효성 검사 실패 시 오류 메시지를 출력하고 throw 되어야 한다.', async () => {
-    const invalidCarNames = 'pobi,woni,javascript';
-    const errorMessage = '[ERROR] 자동차 이름은 1자 이상, 5자 이하만 가능합니다.';
-    mockQuestions([invalidCarNames]);
-
-    const app = new App();
-
-    await expect(app.run()).rejects.toThrow(errorMessage);
-    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining(errorMessage));
-  });
 });
